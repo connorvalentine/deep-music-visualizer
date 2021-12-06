@@ -12,8 +12,8 @@ This repo has been tested on Python3
 Assuming you have python installed, open terminal and run these commands:
 
 ```bash
-git clone https://github.com/msieg/deep-music-visualizer.git
-cd deep-music-visualizer
+git clone https://github.com/connorvalentine/deep-music-visualizer-valentine.git
+cd deep-music-visualizer-valentine
 pip install -r requirements.txt
 ```
 
@@ -30,6 +30,10 @@ apt-get install libsndfile1
 
 All features of the visualizer are available as input parameters. Each parameter and option are described below.
 
+In this fork, I have added inputs and outputs folders to help with organization.
+
+Be careful to name your output file so that you don't accidentally overwrite previous works.
+
 ## Options
 
 ### -d: use disk
@@ -39,7 +43,7 @@ Store the generated images to disk during the generation process, this option re
 Example:
 
 ```bash
-python visualize.py -d --song beethoven.mp3
+python visualize.py -d --song inputs/example.wav
 ```
 
 ### -s: save only
@@ -49,7 +53,7 @@ Read from the temporary folder (created only if the software previously runned i
 Example:
 
 ```bash
-python visualize.py -s --song beethoven.mp3
+python visualize.py -s --song inputs/example.wav
 ```
 
 ## Parameters
@@ -63,7 +67,7 @@ This is the only required argument!
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3
+python visualize.py --song inputs/example.wav
 ```
 
 ### --resolution: GAN resolution
@@ -75,7 +79,7 @@ Default: 512 (128, 256, or 512)
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --resolution 128
+python visualize.py --song inputs/example.wav --resolution 128
 ```
 
 ### --duration: videoclip duration
@@ -87,7 +91,7 @@ Default: Full length of the audio
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --duration 30
+python visualize.py --song inputs/example.wav --duration 30
 ```
 
 ### --pitch_sensitivity: pitch sensitivity
@@ -103,7 +107,7 @@ Default: 220
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --pitch_sensitivity 280
+python visualize.py --song inputs/example.wav --pitch_sensitivity 280
 ```
 
 ### --tempo_sensitivity: tempo sensitivity
@@ -117,7 +121,7 @@ Default: 0.25
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --tempo_sensitivity 0.1
+python visualize.py --song inputs/example.wav --tempo_sensitivity 0.1
 ```
 
 ### --depth: depth
@@ -131,7 +135,7 @@ Default: 1
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --depth 0.5
+python visualize.py --song inputs/example.wav --depth 0.5
 ```
 
 ### --classes: visualized classes
@@ -142,7 +146,7 @@ Default: Twelve random indices between 0-999
 
 Example (if num_classes is set to default of twelve):
 ```bash
-python visualize.py --song beethoven.mp3 --classes 45 99 567 234 89 90 105 998 56 677 884 530
+python visualize.py --song inputs/example.wav --classes 45 99 567 234 89 90 105 998 56 677 884 530
 ```
 
 ### --num_classes: number of used classes
@@ -153,13 +157,13 @@ Default: 12 (<= 12)
 
 Example:
 ```bash
-python visualize.py --song beethoven.mp3 --num_classes 4 
+python visualize.py --song inputs/example.wav --num_classes 4 
 ```
 
 Or if you want to choose the classes:
 
 ```bash
-python visualize.py --song beethoven.mp3 --num_classes 4 --classes 987 23 56 782
+python visualize.py --song inputs/example.wav --num_classes 4 --classes 987 23 56 782
 ```
 
 ### --sort_classes_by_power: class order priority
@@ -169,7 +173,7 @@ Set this to 1 if you want to prioritize the classes based on the order that you 
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3  --classes 45 99 567 234 89 90 105 998 56 677 884 530 --sort_classes_by_power 1
+python visualize.py --song inputs/example.wav  --classes 45 99 567 234 89 90 105 998 56 677 884 530 --sort_classes_by_power 1
 ```
 
 ### --jitter: jitter
@@ -182,7 +186,7 @@ Default: 0.5
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --jitter 0
+python visualize.py --song inputs/example.wav --jitter 0
 ```
 
 ### --frame_length: audio and video frame ratio
@@ -196,7 +200,7 @@ Default: 512
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --frame_length 2048
+python visualize.py --song inputs/example.wav --frame_length 2048
 ```
 
 ### --truncation: image generation variability
@@ -210,7 +214,7 @@ Default: 1
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --truncation 0.4
+python visualize.py --song inputs/example.wav --truncation 0.4
 ```
 
 ### --smooth_factor: pitch fluctuation reduction
@@ -226,7 +230,7 @@ Default: 20
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --smooth_factor 6
+python visualize.py --song inputs/example.wav --smooth_factor 6
 ```
 
 ### --batch_size: GAN batch size
@@ -238,7 +242,7 @@ Default: 30
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --batch_size 20
+python visualize.py --song inputs/example.wav --batch_size 20
 ```
 
 ### --use_previous_classes: reuse previous random classes
@@ -250,7 +254,7 @@ Default: 0
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --use_previous_classes 1
+python visualize.py --song inputs/example.wav --use_previous_classes 1
 ```
 
 ### --use_previous_vectors: use_previous_vectors
@@ -262,7 +266,7 @@ Default: 0
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --use_previous_vectors 1
+python visualize.py --song inputs/example.wav --use_previous_vectors 1
 ```
 
 ### --output_file: output filename
@@ -274,7 +278,7 @@ Default: output.mp4
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --output_file my_movie.mp4
+python visualize.py --song inputs/example.wav --output_file outputs/my_movie.mp4
 ```
 
 ### --scaling: image resampling
@@ -286,5 +290,5 @@ Default: 1 (> 0)
 Example:
 
 ```bash
-python visualize.py --song beethoven.mp3 --scaling 2
+python visualize.py --song inputs/example.wav --scaling 2
 ```
