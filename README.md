@@ -14,11 +14,23 @@ Assuming you have python installed, open terminal and run these commands:
 ```bash
 git clone https://github.com/connorvalentine/deep-music-visualizer-valentine.git
 cd deep-music-visualizer-valentine
-pip install -r requirements.txt
+
+## create your virtual environment with python 3.7.9
+## NOTE make sure 3.7.9 is downloaded https://www.python.org/downloads/release/python-379/
+pip install virtualenv
+python -m virtualenv env --python=python3.7.9
+
+## activate your virtual environment and install the requirements 
+## WINDOWS:
+.\env\Scripts\activate
+py -m pip install -r requirements.txt
+
+## MAC:
+source env/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 If you are on linux, you may also need to run:
-
 ```bash
 apt-get update
 apt-get install ffmpeg
@@ -34,6 +46,18 @@ In this fork, I have added inputs and outputs folders to help with organization.
 
 Be careful to name your output file so that you don't accidentally overwrite previous works.
 
+## Quick start 
+This program will take a long time to run on a CPU only. For quick video generation for exploration
+1. lower the resolution
+2. decrease duration 
+3. increase frame length
+
+You can read more about these options in this readme file below.
+
+This example should run with reasonable speed (~ 10 min)
+```bash
+python visualize.py -d --song inputs/example.wav --resolution 128 --duration 30 --frame_length 2048
+```
 ## Options
 
 ### -d: use disk
@@ -71,6 +95,7 @@ python visualize.py --song inputs/example.wav
 ```
 
 ### --resolution: GAN resolution
+ NOTE M1 chips are not recognized by pytorch as GPUs yet. Devs claim early/mid 2022 release for M1 GPU support 
 
 If you are running on a CPU (if you're not sure, you are on a CPU), you might want to use a lower resolution or else the code will take a very long time to run. At 512X512, it will take ~7 HOURS to generate 1 minute of video on a standard desktop computer (assuming all other parameters are default). At 128x128, it would take ~25 minutes. To speed up runtime, you can decrease the resolution or increase the [frame_length](#Frame_length). To dramatically speed up runtime and generate higher quality videos, use a resolution of 512 on a [GPU on a google cloud virtual machine](https://cloud.google.com/deep-learning-vm/docs/cloud-marketplace).
 
