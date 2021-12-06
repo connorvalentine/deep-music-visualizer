@@ -10,6 +10,10 @@ __pycache__/
 outputs/
 inputs/
 
+# ignore outputs from the program
+class_vectors.npy
+noise_vectors.npy
+
 # Distribution / packaging
 .Python
 build/

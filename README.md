@@ -54,9 +54,9 @@ This program will take a long time to run on a CPU only. For quick video generat
 
 You can read more about these options in this readme file below.
 
-This example should run with reasonable speed (~ 10 min)
+This example should run with reasonable speed (~ 10 min). It will also save the output in the outputs folder 
 ```bash
-python visualize.py -d --song inputs/example.wav --resolution 128 --duration 30 --frame_length 2048
+python visualize.py -d --song inputs/example.wav --output_file outputs/my_movie.mp4 --resolution 128 --duration 30 --frame_length 2048
 ```
 ## Options
 
