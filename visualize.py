@@ -110,6 +110,10 @@ if not save_only:
 
     #set device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    if torch.cuda.is_available():
+        print('\n\nGPU found, using GPU acceleration\n')
+    else:
+        print('\n\nGPU not found, using CPU\n')
 
     ########################################
     ########################################
