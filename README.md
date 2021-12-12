@@ -17,10 +17,12 @@ cd deep-music-visualizer-valentine
 
 ## create your virtual environment with python 3.7.9
 ## NOTE make sure 3.7.9 is downloaded https://www.python.org/downloads/release/python-379/
+## NOTE: I call me virtual environment folder env. 
 pip install virtualenv
 python -m virtualenv env --python=python3.7.9
 
 ## activate your virtual environment and install the requirements 
+
 ## WINDOWS:
 .\env\Scripts\activate
 py -m pip install -r requirements.txt
@@ -40,13 +42,28 @@ apt-get install libsndfile1
 
 ## How to run
 
+1. Open VS Code 
+2. Open a new folder in VS Code. Select deep-music-visualizer-valentine [ File > Open Folder]
+      --> If you are using the github desktop app, it will be documents > GitHub > deep-music-visualizer-valentine
+3. Open a new terminal in VS Code [ Terminal > New Terminal ]
+4. Activate your virtual environement
+    ## WINDOWS use this line of code:
+    .\env\Scripts\activate
+
+    ## MAC use this line of code:
+    source env/bin/activate
+    
+    ## NOTE! If you named your virtual environment something else, venv for instance, then replacve env with venv or whatever in the lines of code above to activate your virtual environment 
+5. You should see (env) in front of your terminal line now, you are ready to go if you have installed the requirements in your folder called env as outlined above.
+
+
+## Quick start 
 All features of the visualizer are available as input parameters. Each parameter and option are described below.
 
 In this fork, I have added inputs and outputs folders to help with organization.
 
 Be careful to name your output file so that you don't accidentally overwrite previous works.
 
-## Quick start 
 This program will take a long time to run on a CPU only. For quick video generation for exploration
 1. lower the resolution
 2. decrease duration 
